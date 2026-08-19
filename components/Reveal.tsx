@@ -5,17 +5,20 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type RevealTag = "div" | "li" | "article";
+type RevealDirection = "up" | "left" | "right";
 
 export default function Reveal({
   children,
   className,
   delay = 0,
   as = "div",
+  direction = "up",
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   as?: RevealTag;
+  direction?: RevealDirection;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -38,6 +41,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
+      data-direction={direction !== "up" ? direction : undefined}
       className={cn("reveal", visible && "is-visible", className)}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

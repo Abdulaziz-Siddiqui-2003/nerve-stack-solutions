@@ -6,17 +6,17 @@ import { usePathname } from "next/navigation";
 
 import ContactForm from "@/components/ContactForm";
 import Logo from "@/components/Logo";
-import { services } from "@/components/Services";
+import SectionDivider from "@/components/SectionDivider";
+import { industries } from "@/lib/industries-data";
 import { siteConfig } from "@/lib/meta";
+import { services } from "@/lib/services-data";
 
-const exploreLinks = [
-  { label: "Services", href: "/#services" },
-  { label: "Our stack", href: "/#stack" },
-  { label: "Process", href: "/#process" },
-  { label: "Why NerveStack", href: "/#approach" },
-  { label: "Selected work", href: "/#work" },
+const companyLinks = [
   { label: "About us", href: "/about" },
+  { label: "Case studies", href: "/#work" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -24,7 +24,8 @@ export default function Footer() {
   const isContactPage = pathname === "/contact";
 
   return (
-    <footer aria-label="Site footer" className="border-t border-border">
+    <footer aria-label="Site footer" className="relative">
+      <SectionDivider />
       {!isContactPage && (
         <section id="contact" aria-labelledby="contact-heading" className="py-20">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -32,7 +33,7 @@ export default function Footer() {
               <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">Project intake</p>
               <h2
                 id="contact-heading"
-                className="mt-3 font-heading text-3xl font-semibold tracking-[-0.03em] text-foreground sm:text-4xl"
+                className="mt-3 font-heading text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl"
               >
                 Tell us what you need built.
               </h2>
@@ -58,8 +59,9 @@ export default function Footer() {
         </section>
       )}
 
-      <div className={isContactPage ? "py-16" : "border-t border-border py-16"}>
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+      {!isContactPage && <SectionDivider />}
+      <div className="py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Link href="/" className="flex items-center gap-3 text-foreground">
               <Logo />
@@ -68,7 +70,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-7 text-muted">
-              A software house engineering high-performance web apps, mobile apps, AI integrations, and n8n automation pipelines for growing businesses.
+              Strategy, design, and engineering for businesses that refuse to be ordinary. Web platforms, mobile apps, AI automation, and technical SEO.
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
@@ -79,26 +81,45 @@ export default function Footer() {
             </a>
           </div>
 
-          <nav aria-label="Explore">
-            <h3 className="text-xs font-medium uppercase tracking-[0.24em] text-subtle">Explore</h3>
+          <nav aria-label="Services">
+            <h3 className="text-xs font-medium uppercase tracking-[0.24em] text-subtle">Services</h3>
             <ul className="mt-5 space-y-3">
-              {exploreLinks.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted transition-colors hover:text-foreground">
-                    {link.label}
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    {service.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <nav aria-label="Capabilities">
-            <h3 className="text-xs font-medium uppercase tracking-[0.24em] text-subtle">Capabilities</h3>
+          <nav aria-label="Industries">
+            <h3 className="text-xs font-medium uppercase tracking-[0.24em] text-subtle">Industries</h3>
             <ul className="mt-5 space-y-3">
-              {services.map((service) => (
-                <li key={service.title}>
-                  <Link href="/#services" className="text-sm text-muted transition-colors hover:text-foreground">
-                    {service.title}
+              {industries.map((industry) => (
+                <li key={industry.slug}>
+                  <Link
+                    href={`/industries/${industry.slug}`}
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    {industry.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Company">
+            <h3 className="text-xs font-medium uppercase tracking-[0.24em] text-subtle">Company</h3>
+            <ul className="mt-5 space-y-3">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-muted transition-colors hover:text-foreground">
+                    {link.label}
                   </Link>
                 </li>
               ))}

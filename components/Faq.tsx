@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { Plus } from "lucide-react";
 
 import Reveal from "@/components/Reveal";
+import SectionDivider from "@/components/SectionDivider";
 import { faqItems } from "@/lib/faq-data";
 import { cn } from "@/lib/utils";
 
@@ -12,12 +13,13 @@ export default function Faq() {
   const baseId = useId();
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="border-t border-border py-24">
-      <Reveal className="mb-12 max-w-2xl">
+    <section id="faq" aria-labelledby="faq-heading" className="py-24">
+      <SectionDivider />
+      <Reveal className="mb-12 mt-12 max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">FAQ</p>
         <h2
           id="faq-heading"
-          className="mt-3 font-heading text-3xl font-semibold tracking-[-0.03em] text-foreground sm:text-4xl"
+          className="mt-3 font-heading text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl"
         >
           Questions we hear before kickoff.
         </h2>

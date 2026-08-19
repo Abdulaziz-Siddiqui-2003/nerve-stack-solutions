@@ -8,7 +8,7 @@ import { createMetadata, siteConfig } from "@/lib/meta";
 export const metadata = createMetadata({
   title: "Contact",
   description:
-    "Tell NerveStack Solutions about your project — web platforms, mobile apps, AI integrations, or n8n automation. We reply within one to two business days.",
+    "Tell NerveStack Solutions about your project: web platforms, mobile apps, AI integrations, or n8n automation. We reply within one to two business days.",
   keywords: ["contact NerveStack", "hire software house", "start a project", "get a quote"],
   path: "/contact",
 });
@@ -17,7 +17,7 @@ const expectations = [
   {
     icon: Clock,
     title: "1–2 business day reply",
-    description: "Every project brief gets a direct reply from the engineer who would actually build it — not a sales queue.",
+    description: "Every project brief gets a direct reply from the engineer who would actually build it, not a sales queue.",
   },
   {
     icon: MessageSquare,
@@ -46,7 +46,7 @@ export default function ContactPage() {
 
       <header className="max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">Contact</p>
-        <h1 className="mt-3 text-balance font-heading text-4xl font-semibold tracking-[-0.03em] text-foreground sm:text-5xl">
+        <h1 className="mt-3 text-balance font-heading text-4xl font-medium tracking-[-0.02em] text-foreground sm:text-5xl">
           Let&apos;s talk about what you&apos;re building.
         </h1>
         <p className="mt-5 text-lg leading-8 text-muted">
@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <item.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <h2 className="font-heading text-lg font-semibold text-foreground">{item.title}</h2>
+                  <h2 className="font-heading text-lg font-medium text-foreground">{item.title}</h2>
                   <p className="mt-1 text-sm leading-7 text-muted">{item.description}</p>
                 </div>
               </Reveal>

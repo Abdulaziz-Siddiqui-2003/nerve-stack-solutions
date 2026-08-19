@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NerveStack Solutions — Engineering high-performance software systems";
+export const alt = "NerveStack Solutions: Engineering high-performance software systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,9 +15,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          backgroundColor: "#08080a",
+          backgroundColor: "#0b0707",
           backgroundImage:
-            "radial-gradient(circle at 15% 0%, rgba(245,158,11,0.28), transparent 45%)",
+            "radial-gradient(ellipse 70% 60% at 50% -10%, rgba(220,38,38,0.35), transparent 60%)",
           fontFamily: "sans-serif",
         }}
       >
@@ -27,8 +27,8 @@ export default function OpengraphImage() {
               width: 22,
               height: 22,
               borderRadius: 999,
-              backgroundColor: "#F59E0B",
-              boxShadow: "0 0 40px 8px rgba(245,158,11,0.7)",
+              backgroundColor: "#DC2626",
+              boxShadow: "0 0 40px 8px rgba(220,38,38,0.6)",
             }}
           />
           <div style={{ fontSize: 30, color: "#FAFAFA", letterSpacing: 4, fontWeight: 700 }}>

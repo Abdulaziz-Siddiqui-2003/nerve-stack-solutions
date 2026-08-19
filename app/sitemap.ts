@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { caseStudies } from "@/lib/projects-data";
+import { industries } from "@/lib/industries-data";
 import { siteConfig } from "@/lib/meta";
+import { caseStudies } from "@/lib/projects-data";
+import { services } from "@/lib/services-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -32,5 +34,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...workRoutes];
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${siteConfig.url}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const industryRoutes: MetadataRoute.Sitemap = industries.map((industry) => ({
+    url: `${siteConfig.url}/industries/${industry.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...workRoutes];
 }

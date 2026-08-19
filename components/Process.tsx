@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import SectionDivider from "@/components/SectionDivider";
 
 const steps = [
   {
@@ -11,7 +12,7 @@ const steps = [
     title: "Design",
     duration: "Week 1-2",
     description:
-      "Architecture, data flow, and interface decisions locked down with you — no surprises mid-build.",
+      "Architecture, data flow, and interface decisions locked down with you, with no surprises mid-build.",
   },
   {
     title: "Build",
@@ -29,12 +30,13 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" aria-labelledby="process-heading" className="border-t border-border py-24">
-      <Reveal className="mb-12 max-w-2xl">
+    <section id="process" aria-labelledby="process-heading" className="py-24">
+      <SectionDivider />
+      <Reveal className="mb-12 mt-12 max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.24em] text-accent">How we work</p>
         <h2
           id="process-heading"
-          className="mt-3 font-heading text-3xl font-semibold tracking-[-0.03em] text-foreground sm:text-4xl"
+          className="mt-3 font-heading text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl"
         >
           A straight line from kickoff to a system that runs itself.
         </h2>
@@ -56,7 +58,7 @@ export default function Process() {
                 {step.duration}
               </span>
             </div>
-            <h3 className="mt-6 font-heading text-xl font-semibold text-foreground">{step.title}</h3>
+            <h3 className="mt-6 font-heading text-xl font-medium text-foreground">{step.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{step.description}</p>
           </Reveal>
         ))}

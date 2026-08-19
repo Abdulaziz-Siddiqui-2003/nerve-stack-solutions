@@ -127,7 +127,7 @@ export default function ContactForm({ className }: { className?: string }) {
           {status === "success" && (
             <div className="flex items-center gap-2 text-sm text-foreground">
               <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />
-              Received — we&apos;ll reply shortly.
+              Received. We&apos;ll reply shortly.
             </div>
           )}
 

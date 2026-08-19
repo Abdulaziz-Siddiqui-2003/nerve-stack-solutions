@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 
-import AuroraBackground from "@/components/AuroraBackground";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
@@ -16,9 +15,10 @@ const bodyFont = Inter({
   display: "swap",
 });
 
-const headingFont = Space_Grotesk({
-  variable: "--font-heading-src",
+const displayFont = Fraunces({
+  variable: "--font-display-src",
   subsets: ["latin"],
+  axes: ["opsz", "SOFT"],
   display: "swap",
 });
 
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#08080a",
+  themeColor: "#0b0707",
   colorScheme: "dark",
 };
 
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${bodyFont.variable} ${headingFont.variable} ${monoFont.variable}`}
+      className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to main content
         </a>
         <Loader />
-        <AuroraBackground />
+        <div className="grain-overlay" aria-hidden="true" />
         <StructuredData data={organizationSchema} />
         <StructuredData data={websiteSchema} />
         <Navbar />

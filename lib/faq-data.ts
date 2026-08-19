@@ -22,6 +22,6 @@ export const faqItems = [
   {
     question: "Can you integrate with our existing tools and CRM?",
     answer:
-      "Yes — n8n automation and custom API work is one of our core capabilities, so connecting your CRM, support desk, and internal tools into one system is standard scope.",
+      "Yes. n8n automation and custom API work is one of our core capabilities, so connecting your CRM, support desk, and internal tools into one system is standard scope.",
   },
 ];

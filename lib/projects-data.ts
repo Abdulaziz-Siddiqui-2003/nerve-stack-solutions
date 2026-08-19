@@ -26,16 +26,16 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "A role-aware inventory and asset management platform that replaced spreadsheet-based tracking with a centralized system for stock, purchase orders, and project allocation.",
     tags: ["Web Platform", "Internal Tools", "Inventory"],
-    client: "EIE — Electronics Interconnect Engineering",
+    client: "EIE (Electronics Interconnect Engineering)",
     duration: "3 weeks",
     role: "Full-stack development (solo)",
     techStack: ["React", "Vite", "Node.js", "Express.js", "Prisma ORM", "PostgreSQL", "Supabase", "JWT Auth"],
     overview:
-      "InvenTrack is a full-stack inventory management system built to replace manual, spreadsheet-based tracking with a centralized, role-aware platform. Staff manage physical electronic components across organized storage sections, track stock movements, allocate equipment to projects, manage purchase orders with suppliers, and generate detailed PDF reports — all through a secure web application accessible from any device.",
+      "InvenTrack is a full-stack inventory management system built to replace manual, spreadsheet-based tracking with a centralized, role-aware platform. Staff manage physical electronic components across organized storage sections, track stock movements, allocate equipment to projects, manage purchase orders with suppliers, and generate detailed PDF reports, all through a secure web application accessible from any device.",
     problem:
-      "The team was tracking hundreds of electronic components across physical storage sections using spreadsheets — a process prone to human error, conflicting edits between team members, and zero audit trail of who issued what stock to which project. There was no real-time view of stock levels, no structured purchase order workflow, and no way to enforce who was allowed to change inventory data.",
+      "The team was tracking hundreds of electronic components across physical storage sections using spreadsheets, a process prone to human error, conflicting edits between team members, and zero audit trail of who issued what stock to which project. There was no real-time view of stock levels, no structured purchase order workflow, and no way to enforce who was allowed to change inventory data.",
     solution:
-      "We designed a three-tier role system — Admin, Editor, and Viewer — on top of a relational PostgreSQL schema, giving every team member exactly the access their role required. Stock movements, purchase orders, and project allocations are all recorded as atomic transactions with a full audit trail, and a live dashboard surfaces low-stock alerts before they become project blockers.",
+      "We designed a three-tier role system (Admin, Editor, and Viewer) on top of a relational PostgreSQL schema, giving every team member exactly the access their role required. Stock movements, purchase orders, and project allocations are all recorded as atomic transactions with a full audit trail, and a live dashboard surfaces low-stock alerts before they become project blockers.",
     features: [
       {
         title: "Role-based access control",
@@ -73,19 +73,19 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "aigros",
-    title: "AIGROS — Pest Detector",
+    title: "AIGROS: Pest Detector",
     tagline: "AI-Powered Agricultural Pest Detection Mobile App",
     summary:
       "A smart farming platform connecting solar-powered ESP32 field devices to a Flutter mobile app, giving farmers and admins real-time visibility into device health, captured field images, and system alerts.",
     tags: ["Mobile App", "IoT", "AgriTech"],
-    client: "EIE — Electronics Interconnect Engineering",
+    client: "EIE (Electronics Interconnect Engineering)",
     duration: "3 weeks",
-    role: "Full-stack development — mobile, backend & IoT integration (solo)",
+    role: "Full-stack development: mobile, backend, and IoT integration (solo)",
     techStack: ["Flutter", "Dart", "Node.js", "Express.js", "ESP32-S3", "PostgreSQL", "REST API"],
     overview:
-      "AIGROS is a full-stack smart farming platform consisting of a Flutter mobile app, a Node.js/Express REST API, and ESP32-S3 IoT gateway devices deployed in agricultural fields. Farmers and admins monitor devices in real time — battery, solar power, signal strength, captured field images, and system alerts — while admins can remotely configure device settings.",
+      "AIGROS is a full-stack smart farming platform consisting of a Flutter mobile app, a Node.js/Express REST API, and ESP32-S3 IoT gateway devices deployed in agricultural fields. Farmers and admins monitor devices in real time, including battery, solar power, signal strength, captured field images, and system alerts, while admins can remotely configure device settings.",
     problem:
-      "Field devices were generating valuable sensor and image data with no central place for farmers or administrators to monitor them. There was no way to know a device had gone offline, was running low on battery, or had stopped syncing until someone physically checked it in the field — by which point data, and potentially early pest signals, had already been lost.",
+      "Field devices were generating valuable sensor and image data with no central place for farmers or administrators to monitor them. There was no way to know a device had gone offline, was running low on battery, or had stopped syncing until someone physically checked it in the field, by which point data, and potentially early pest signals, had already been lost.",
     solution:
       "We built an end-to-end pipeline from the physical ESP32-S3 device through a REST API into a PostgreSQL database and a Flutter mobile dashboard. Devices sync telemetry and images on a configurable schedule; the app surfaces battery, solar, and signal health as color-coded status, and pushes alerts the moment a device goes offline, drops signal, or fails an upload.",
     features: [
@@ -115,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     outcomes: [
-      "Built a complete end-to-end IoT pipeline from ESP32-S3 field device to Flutter mobile dashboard — sensor data, images, and telemetry all flowing through a live REST API into PostgreSQL",
+      "Built a complete end-to-end IoT pipeline from ESP32-S3 field device to Flutter mobile dashboard, with sensor data, images, and telemetry all flowing through a live REST API into PostgreSQL",
       "Delivered real-time device monitoring across battery, solar voltage, signal strength, and upload success rate, visualised through interactive charts and health cards",
       "Designed a low-power field device architecture with configurable wake-up schedules and OTA firmware update support to maximise device lifespan in remote environments",
       "Role-based access control cleanly separates admin and farmer workflows",
@@ -135,7 +135,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Full-stack development",
     techStack: ["React", "Node.js", "Express.js", "MongoDB", "Python", "FastAPI", "BERT", "T5", "Docker"],
     overview:
-      "IntelliLearn is a full-stack learning management platform built around two AI microservices: automatic essay scoring and automatic quiz generation. Students enroll in courses, watch lecture videos, and take AI-generated quizzes; instructors upload course content, generate quizzes straight from lecture text, and review AI-scored essay submissions before publishing grades; admins manage accounts and monitor platform health — all inside one role-aware system.",
+      "IntelliLearn is a full-stack learning management platform built around two AI microservices: automatic essay scoring and automatic quiz generation. Students enroll in courses, watch lecture videos, and take AI-generated quizzes; instructors upload course content, generate quizzes straight from lecture text, and review AI-scored essay submissions before publishing grades; admins manage accounts and monitor platform health, all inside one role-aware system.",
     problem:
       "Grading free-text essays and short answers by hand is slow, and the delay between submission and feedback undermines learning. Writing new quiz questions for every topic also eats into time instructors could spend teaching. Most learning platforms handle content delivery and objective-question grading well, but offer little for nuanced, open-ended assessment.",
     solution:
@@ -186,9 +186,9 @@ export const caseStudies: CaseStudy[] = [
     role: "Full-stack development",
     techStack: ["React", "Node.js", "Express.js", "PostgreSQL"],
     overview:
-      "Final Year Projects at a university department are mandatory, team-based capstone undertakings — students propose a topic, a supervisor and co-supervisor are assigned to mentor the group, and progress is tracked through regular evaluations, documentation, and presentations until the final grade is recorded. This platform digitizes that entire lifecycle with three role-based dashboards: Student, Supervisor, and Coordinator.",
+      "Final Year Projects at a university department are mandatory, team-based capstone undertakings. Students propose a topic, a supervisor and co-supervisor are assigned to mentor the group, and progress is tracked through regular evaluations, documentation, and presentations until the final grade is recorded. This platform digitizes that entire lifecycle with three role-based dashboards: Student, Supervisor, and Coordinator.",
     problem:
-      "Running Final Year Projects across a whole department means tracking proposals, supervisor assignments, milestone evaluations, and grading for hundreds of students at once — usually spread across spreadsheets, email threads, and in-person meetings. Coordinators had no single view of which groups were on track, which proposals were still pending review, or where evaluation bottlenecks were forming.",
+      "Running Final Year Projects across a whole department means tracking proposals, supervisor assignments, milestone evaluations, and grading for hundreds of students at once, usually spread across spreadsheets, email threads, and in-person meetings. Coordinators had no single view of which groups were on track, which proposals were still pending review, or where evaluation bottlenecks were forming.",
     solution:
       "We built a role-based portal with three distinct views so each person only sees what's relevant to them. Students track their assignments and supervisor details from one dashboard; supervisors monitor their assigned groups' progress and review proposals; coordinators get a department-wide view of enrollment, active supervisors, pending proposals, and evaluation status, with grade-distribution and group-performance charts to spot problems before they become deadline emergencies.",
     features: [
@@ -198,11 +198,11 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Supervisor dashboard",
-        description: "Group counts by status — in progress, completed, pending evaluation — department announcements, and a groups-performance chart across supervised teams.",
+        description: "Group counts by status (in progress, completed, pending evaluation), department announcements, and a groups-performance chart across supervised teams.",
       },
       {
         title: "Coordinator command center",
-        description: "Department-wide KPIs — total enrolled students, active supervisors, pending proposals, ongoing evaluations, and plagiarism alerts — at a glance.",
+        description: "Department-wide KPIs, including total enrolled students, active supervisors, pending proposals, ongoing evaluations, and plagiarism alerts, at a glance.",
       },
       {
         title: "Proposal & evaluator workflow",
@@ -230,30 +230,3 @@ export const caseStudies: CaseStudy[] = [
 export function getCaseStudy(slug: string) {
   return caseStudies.find((project) => project.slug === slug);
 }
-
-export const otherProjects = [
-  {
-    title: "MedVid: AI",
-    tags: ["AI", "Healthcare", "Video"],
-    description:
-      "An AI-powered medical video platform that structures and summarizes clinical video content for faster review, learning, and patient education.",
-  },
-  {
-    title: "Kisaan Bot",
-    tags: ["AI Assistant", "AgriTech", "Automation"],
-    description:
-      "An AI assistant for farmers that answers crop, weather, and market questions in plain language, built to work over low-bandwidth connections.",
-  },
-  {
-    title: "Executive MERN Analytics Dashboards",
-    tags: ["MERN", "Data", "Operations"],
-    description:
-      "Unified fragmented KPI views into a single operational dashboard with fast filters and cleaner decision loops.",
-  },
-  {
-    title: "Automation Node Network",
-    tags: ["n8n", "Workflow", "CRM"],
-    description:
-      "Connected lead routing, CRM sync, and customer notifications into an autonomous system with less human touch time.",
-  },
-];

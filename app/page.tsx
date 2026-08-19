@@ -3,15 +3,16 @@ import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
+import PricingSection from "@/components/PricingSection";
 import Process from "@/components/Process";
-import Services, { services } from "@/components/Services";
+import Services from "@/components/Services";
 import StructuredData from "@/components/StructuredData";
-import TechStack from "@/components/TechStack";
 import { faqItems } from "@/lib/faq-data";
 import { createMetadata, siteConfig } from "@/lib/meta";
+import { services } from "@/lib/services-data";
 
 export const metadata = createMetadata({
-  title: `${siteConfig.name} — Engineering high-performance systems`,
+  title: `${siteConfig.name}: Engineering high-performance systems`,
   description: siteConfig.description,
   keywords: [
     "NerveStack",
@@ -34,7 +35,8 @@ const serviceSchema = {
     item: {
       "@type": "Service",
       name: service.title,
-      description: service.description,
+      description: service.summary,
+      url: `${siteConfig.url}/services/${service.slug}`,
       provider: { "@id": `${siteConfig.url}#organization` },
     },
   })),
@@ -58,10 +60,10 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      <TechStack />
       <Process />
       <Approach />
       <Portfolio />
+      <PricingSection />
       <Faq />
       <CtaBand />
       <StructuredData data={serviceSchema} />

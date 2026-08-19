@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import CaseStudyThumbnail from "@/components/CaseStudyThumbnail";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import StructuredData from "@/components/StructuredData";
@@ -14,30 +15,26 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const accentClasses: Record<CaseStudy["accent"], { text: string; border: string; chip: string; glow: string }> = {
+const accentClasses: Record<CaseStudy["accent"], { text: string; border: string; chip: string }> = {
   amber: {
     text: "text-accent",
     border: "border-accent/40",
     chip: "border-accent/30 bg-accent/10 text-accent",
-    glow: "rgba(245,158,11,0.4)",
   },
   violet: {
     text: "text-violet",
     border: "border-violet/40",
     chip: "border-violet/30 bg-violet/10 text-violet",
-    glow: "rgba(129,140,248,0.4)",
   },
   teal: {
     text: "text-teal-400",
     border: "border-teal-400/40",
     chip: "border-teal-400/30 bg-teal-400/10 text-teal-400",
-    glow: "rgba(45,212,191,0.4)",
   },
   green: {
     text: "text-success",
     border: "border-success/40",
     chip: "border-success/30 bg-success/10 text-success",
-    glow: "rgba(34,197,94,0.4)",
   },
 };
 
@@ -54,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return createMetadata({
-    title: `${project.title} — Case Study`,
+    title: `${project.title}: Case Study`,
     description: project.summary,
     keywords: [project.title, ...project.tags, ...project.techStack, "case study", "NerveStack Solutions"],
     path: `/work/${project.slug}`,
@@ -110,7 +107,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <header className="mt-8 max-w-3xl">
         <p className={`text-xs font-medium uppercase tracking-[0.24em] ${accent.text}`}>Case study</p>
-        <h1 className="mt-3 text-balance font-heading text-4xl font-semibold tracking-[-0.03em] text-foreground sm:text-5xl">
+        <h1 className="mt-3 text-balance font-heading text-4xl font-medium tracking-[-0.02em] text-foreground sm:text-5xl">
           {project.title}
         </h1>
         <p className="mt-4 text-lg leading-8 text-muted">{project.tagline}</p>
@@ -154,28 +151,26 @@ export default async function CaseStudyPage({ params }: Props) {
           />
         </div>
       ) : (
-        <div
-          aria-hidden="true"
+        <CaseStudyThumbnail
+          slug={project.slug}
+          accent={project.accent}
           className={`relative mt-12 h-56 overflow-hidden rounded-3xl border sm:h-72 ${accent.border}`}
-          style={{
-            background: `radial-gradient(60% 80% at 20% 20%, ${accent.glow}, transparent 70%), radial-gradient(50% 60% at 85% 80%, ${accent.glow}, transparent 70%), var(--card)`,
-          }}
         />
       )}
 
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1fr]">
         <Reveal>
-          <h2 className="font-heading text-2xl font-semibold text-foreground">Overview</h2>
+          <h2 className="font-heading text-2xl font-medium text-foreground">Overview</h2>
           <p className="mt-4 text-base leading-7 text-muted">{project.overview}</p>
         </Reveal>
 
         <div className="grid gap-8">
           <Reveal>
-            <h2 className="font-heading text-xl font-semibold text-foreground">The problem</h2>
+            <h2 className="font-heading text-xl font-medium text-foreground">The problem</h2>
             <p className="mt-3 text-base leading-7 text-muted">{project.problem}</p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="font-heading text-xl font-semibold text-foreground">The solution</h2>
+            <h2 className="font-heading text-xl font-medium text-foreground">The solution</h2>
             <p className="mt-3 text-base leading-7 text-muted">{project.solution}</p>
           </Reveal>
         </div>
@@ -183,7 +178,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <div className="mt-16">
         <Reveal>
-          <h2 className="font-heading text-2xl font-semibold text-foreground">What we built</h2>
+          <h2 className="font-heading text-2xl font-medium text-foreground">What we built</h2>
         </Reveal>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {project.features.map((feature, index) => (
@@ -192,7 +187,7 @@ export default async function CaseStudyPage({ params }: Props) {
               delay={index * 60}
               className="rounded-2xl border border-border bg-card/60 p-5 transition-colors duration-300 hover:border-accent/40 hover:bg-card-hover"
             >
-              <h3 className="font-heading text-lg font-semibold text-foreground">{feature.title}</h3>
+              <h3 className="font-heading text-lg font-medium text-foreground">{feature.title}</h3>
               <p className="mt-2 text-sm leading-7 text-muted">{feature.description}</p>
             </Reveal>
           ))}
@@ -202,7 +197,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {project.images && project.images.length > 1 && (
         <div className="mt-16">
           <Reveal>
-            <h2 className="font-heading text-2xl font-semibold text-foreground">Screens</h2>
+            <h2 className="font-heading text-2xl font-medium text-foreground">Screens</h2>
           </Reveal>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {project.images.slice(1).map((image, index) => (
@@ -225,7 +220,7 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       <Reveal className="mt-16">
-        <h2 className="font-heading text-2xl font-semibold text-foreground">Tech stack</h2>
+        <h2 className="font-heading text-2xl font-medium text-foreground">Tech stack</h2>
         <div className="mt-5 flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
             <span
@@ -239,7 +234,7 @@ export default async function CaseStudyPage({ params }: Props) {
       </Reveal>
 
       <Reveal className="mt-16">
-        <h2 className="font-heading text-2xl font-semibold text-foreground">Key outcomes</h2>
+        <h2 className="font-heading text-2xl font-medium text-foreground">Key outcomes</h2>
         <ul className="mt-5 grid gap-4 sm:grid-cols-2">
           {project.outcomes.map((outcome) => (
             <li key={outcome} className="flex items-start gap-3 text-sm leading-7 text-muted">
