@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   category: "technology",
   icons: {
-    icon: "/icon.png",
+    icon: "/facicon.ico"
   },
 };
 
