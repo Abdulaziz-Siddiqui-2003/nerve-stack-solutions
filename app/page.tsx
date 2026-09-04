@@ -3,7 +3,6 @@ import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
-import PricingSection from "@/components/PricingSection";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
 import StructuredData from "@/components/StructuredData";
@@ -63,7 +62,6 @@ export default function Home() {
       <Process />
       <Approach />
       <Portfolio />
-      <PricingSection />
       <Faq />
       <CtaBand />
       <StructuredData data={serviceSchema} />

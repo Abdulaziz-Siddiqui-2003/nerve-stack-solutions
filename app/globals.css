@@ -178,6 +178,7 @@ summary:focus-visible,
 }
 
 .loader-mark {
+  border-radius: 0.65rem;
   animation: loader-mark-glow 1.8s ease-in-out infinite;
 }
 
