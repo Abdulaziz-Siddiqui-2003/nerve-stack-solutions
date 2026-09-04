@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "NerveStack Solutions",
   shortName: "NerveStack",
-  url: "https://nervestack.com",
-  email: "info@nervestacksolutions.com",
+  url: "https://nervestack.dev",
+  email: "hello@nervestack.dev",
   description:
     "NerveStack Solutions is a software house engineering high-performance web apps, mobile apps, n8n automation pipelines, and AI integrations for growing businesses.",
   locale: "en_US",
