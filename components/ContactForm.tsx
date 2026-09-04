@@ -5,14 +5,39 @@ import { ArrowUpRight, CheckCircle2, CircleAlert } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 const initialState = {
   name: "",
   email: "",
-  projectType: "",
-  budgetScope: "",
+  phone: "",
+  company: "",
+  serviceInterest: "",
+  budgetRange: "",
+  timeline: "",
   message: "",
 };
+
+const serviceOptions = [
+  "Web Development",
+  "App Development",
+  "n8n Automation",
+  "SEO",
+  "Not sure yet",
+];
+
+const budgetOptions = [
+  "Under $2,000",
+  "$2,000 - $5,000",
+  "$5,000 - $15,000",
+  "$15,000+",
+  "Not sure yet",
+];
+
+const timelineOptions = ["ASAP", "Within 1-3 months", "3-6 months", "Flexible / just exploring"];
+
+const selectClassName =
+  "flex h-11 w-full appearance-none rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 export default function ContactForm({ className }: { className?: string }) {
   const [form, setForm] = useState(initialState);
@@ -78,28 +103,94 @@ export default function ContactForm({ className }: { className?: string }) {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="projectType" className="text-xs uppercase tracking-[0.18em] text-muted">
-            Project Type
+          <label htmlFor="phone" className="text-xs uppercase tracking-[0.18em] text-muted">
+            Phone (optional)
           </label>
           <Input
-            id="projectType"
-            name="projectType"
-            value={form.projectType}
-            onChange={(event) => updateField("projectType", event.target.value)}
-            placeholder="Web app, app, automation..."
+            id="phone"
+            name="phone"
+            type="tel"
+            value={form.phone}
+            onChange={(event) => updateField("phone", event.target.value)}
+            placeholder="+1 555 000 0000"
+            autoComplete="tel"
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="budgetScope" className="text-xs uppercase tracking-[0.18em] text-muted">
-            Budget / Scope
+          <label htmlFor="company" className="text-xs uppercase tracking-[0.18em] text-muted">
+            Company (optional)
           </label>
           <Input
-            id="budgetScope"
-            name="budgetScope"
-            value={form.budgetScope}
-            onChange={(event) => updateField("budgetScope", event.target.value)}
-            placeholder="Discovery, MVP, scale-up"
+            id="company"
+            name="company"
+            value={form.company}
+            onChange={(event) => updateField("company", event.target.value)}
+            placeholder="Your company"
+            autoComplete="organization"
           />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="serviceInterest" className="text-xs uppercase tracking-[0.18em] text-muted">
+            Service needed
+          </label>
+          <select
+            id="serviceInterest"
+            name="serviceInterest"
+            value={form.serviceInterest}
+            onChange={(event) => updateField("serviceInterest", event.target.value)}
+            className={cn(selectClassName, !form.serviceInterest && "text-subtle")}
+          >
+            <option value="" disabled>
+              Select a service
+            </option>
+            {serviceOptions.map((option) => (
+              <option key={option} value={option} className="text-foreground">
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="budgetRange" className="text-xs uppercase tracking-[0.18em] text-muted">
+            Budget range
+          </label>
+          <select
+            id="budgetRange"
+            name="budgetRange"
+            value={form.budgetRange}
+            onChange={(event) => updateField("budgetRange", event.target.value)}
+            className={cn(selectClassName, !form.budgetRange && "text-subtle")}
+          >
+            <option value="" disabled>
+              Select a range
+            </option>
+            {budgetOptions.map((option) => (
+              <option key={option} value={option} className="text-foreground">
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <label htmlFor="timeline" className="text-xs uppercase tracking-[0.18em] text-muted">
+            Timeline
+          </label>
+          <select
+            id="timeline"
+            name="timeline"
+            value={form.timeline}
+            onChange={(event) => updateField("timeline", event.target.value)}
+            className={cn(selectClassName, !form.timeline && "text-subtle")}
+          >
+            <option value="" disabled>
+              Select a timeline
+            </option>
+            {timelineOptions.map((option) => (
+              <option key={option} value={option} className="text-foreground">
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -114,6 +205,7 @@ export default function ContactForm({ className }: { className?: string }) {
           onChange={(event) => updateField("message", event.target.value)}
           className="min-h-32 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           placeholder="Share the business problem, current blockers, and desired outcomes."
+          required
         />
       </div>
 

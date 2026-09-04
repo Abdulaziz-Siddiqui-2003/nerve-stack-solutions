@@ -1,8 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
-
-import Logo from "@/components/Logo";
 
 export default function Loader() {
   const [phase, setPhase] = useState<"in" | "out" | "done">("in");
@@ -33,7 +32,7 @@ export default function Loader() {
       className={`loader-overlay ${phase === "out" ? "loader-overlay--out" : ""}`}
     >
       <div className="loader-brand">
-        <Logo className="loader-mark" />
+        <Image src="/logo.jpeg" alt="" width={40} height={40} priority className="loader-mark" />
         <span className="loader-wordmark">NerveStack</span>
       </div>
       <div className="loader-bar">

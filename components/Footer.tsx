@@ -1,11 +1,11 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import ContactForm from "@/components/ContactForm";
-import Logo from "@/components/Logo";
 import SectionDivider from "@/components/SectionDivider";
 import { industries } from "@/lib/industries-data";
 import { siteConfig } from "@/lib/meta";
@@ -14,7 +14,6 @@ import { services } from "@/lib/services-data";
 const companyLinks = [
   { label: "About us", href: "/about" },
   { label: "Case studies", href: "/#work" },
-  { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ];
@@ -64,7 +63,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Link href="/" className="flex items-center gap-3 text-foreground">
-              <Logo />
+              <Image src="/logo.jpeg" alt="NerveStack Solutions logo" width={36} height={36} className="rounded-lg" />
               <span className="font-heading text-sm font-semibold tracking-[0.24em] uppercase">
                 NerveStack
               </span>

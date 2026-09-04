@@ -38,9 +38,6 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   category: "technology",
-  icons: {
-    icon: "/facicon.ico"
-  },
 };
 
 export const viewport: Viewport = {

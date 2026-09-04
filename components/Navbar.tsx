@@ -1,14 +1,44 @@
 "use client";
 
 import { ChevronDown, Menu, Plus, Sparkles, X, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { createElement, type ReactNode, useEffect, useRef, useState } from "react";
 
-import Logo from "@/components/Logo";
 import { buttonVariants } from "@/components/ui/button";
 import { industries } from "@/lib/industries-data";
 import { cn } from "@/lib/utils";
+
+type MotionProps = Record<string, unknown> & { children?: ReactNode };
+
+const motionProps = new Set([
+  "initial",
+  "animate",
+  "exit",
+  "transition",
+  "whileHover",
+  "whileTap",
+]);
+
+function MotionElement({ as, children, ...props }: MotionProps & { as: string }) {
+  const domProps = Object.fromEntries(
+    Object.entries(props).filter(([key]) => !motionProps.has(key))
+  );
+  return createElement(as, domProps, children);
+}
+
+const motion = {
+  div: (props: MotionProps) => <MotionElement as="div" {...props} />,
+  header: (props: MotionProps) => <MotionElement as="header" {...props} />,
+  nav: (props: MotionProps) => <MotionElement as="nav" {...props} />,
+  button: (props: MotionProps) => <MotionElement as="button" {...props} />,
+  li: (props: MotionProps) => <MotionElement as="li" {...props} />,
+  ul: (props: MotionProps) => <MotionElement as="ul" {...props} />,
+};
+
+function AnimatePresence({ children }: { children?: ReactNode; mode?: "sync" | "wait" | "popLayout" }) {
+  return <>{children}</>;
+}
 
 const navItems = [
   { label: "Services", href: "/#services" },
@@ -92,9 +122,9 @@ export default function Navbar() {
           <motion.div
             whileHover={{ scale: 1.06, rotate: 3 }}
             whileTap={{ scale: 0.95 }}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/60 transition-colors group-hover:border-accent/40"
+            className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-border/80 bg-card/60 transition-colors group-hover:border-accent/40"
           >
-            <Logo />
+            <Image src="/logo.jpeg" alt="NerveStack Solutions logo" width={36} height={36} className="h-full w-full object-cover" />
           </motion.div>
           <span className="font-heading text-sm font-semibold uppercase tracking-[0.24em] text-foreground transition-colors group-hover:text-accent">
             NerveStack

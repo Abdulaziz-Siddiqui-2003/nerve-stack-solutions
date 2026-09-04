@@ -29,7 +29,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Modern Live Pill / Status Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3.5 py-1.5 backdrop-blur-md transition-colors hover:border-accent/40">
+        {/*<div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3.5 py-1.5 backdrop-blur-md transition-colors hover:border-accent/40">
           {/* <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
             {/* <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" /> 
@@ -38,10 +38,10 @@ export default function Hero() {
             Available for Q3/Q4 Projects
           </span> */}
           {/* <Sparkles className="h-3.5 w-3.5 text-accent" /> */}
-        </div>
+        {/* </div>
 
         {/* Heading */}
-        <h1 className="mx-auto max-w-5xl text-balance font-heading text-5xl font-medium tracking-[-0.03em] sm:text-6xl lg:text-7xl">
+        <h1 className="mx-auto max-w-5xl -mt-24 text-balance font-heading text-5xl font-medium tracking-[-0.03em] sm:text-6xl lg:text-7xl">
           We build what <span className="text-gradient italic">others imagine.</span>
         </h1>
 
